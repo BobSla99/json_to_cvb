@@ -9,34 +9,12 @@ const jsonData = bConvert.addEventListener("click", (e) => {
   console.log(jsonForm);
 });
 
-// inpLoad.addEventListener("change", (e) => {
-//   const file = e.target.files[0];
-//   if (!file) {
-//     console.error("None file was selected.");
-//     return;
-//   }
-//   const reader = new FileReader();
-//   reader.onload = function (event) {
-//     const content = event.target.result;
-//     try {
-//       const jsonData = JSON.parse(content);
-//       console.log(jsonData);
-//       jsonForm.textContent = jsonData;
-//       console.log("ladfjk");
-//     } catch (error) {
-//       console.error("Error al analizar el archivo JSON", error);
-//     }
-//   };
-//   reader.readAsText(file);
-// });
-
 function convertJSONtoCSV() {
   let json;
   let keys = [];
   let values = [];
 
   try {
-    console.log(jsonForm.value);
     json = JSON.parse(jsonForm.value);
   } catch (err) {
     console.log("formato incorrecto", err);
