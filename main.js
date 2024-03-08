@@ -29,16 +29,28 @@ function convertJSONtoCSV() {
         if (nkeys.length !== keys.length) {
           throw new Error("number of keys are diferent");
         } else {
-          console.log("ok", nkeys);
+          // console.log("ok", nkeys);
         }
       }
+      console.log(keys);
       const row = keys.map((k) => {
         return item[k];
       });
       values.push(row);
     });
     console.log(keys, values);
+    renderCVS();
   } else {
     alert("no es un arreglo de objetos");
+  }
+
+  function renderCVS() {
+    const header = keys;
+    const htmlCSV = [];
+    htmlCSV.push(header, "\n");
+    values.map((value) => {
+      htmlCSV.push(value, "\n");
+    });
+    csvForm.value = htmlCSV.join("");
   }
 }
