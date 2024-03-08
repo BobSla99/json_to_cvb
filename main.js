@@ -17,7 +17,8 @@ function convertJSONtoCSV() {
   try {
     json = JSON.parse(jsonForm.value);
   } catch (err) {
-    console.log("formato incorrecto", err);
+    alert("formato incorrecto", err);
+    return;
   }
 
   if (Array.isArray(json)) {
