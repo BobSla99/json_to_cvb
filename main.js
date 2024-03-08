@@ -39,18 +39,11 @@ function convertJSONtoCSV() {
       values.push(row);
     });
     console.log(keys, values);
-    renderCVS();
+    values.unshift(keys);
+    console.log(values);
+    const text = values.map((v) => v.join(",")).join("\n");
+    csvForm.value = text;
   } else {
     alert("no es un arreglo de objetos");
-  }
-
-  function renderCVS() {
-    const header = keys;
-    const htmlCSV = [];
-    htmlCSV.push(header, "\n");
-    values.map((value) => {
-      htmlCSV.push(value, "\n");
-    });
-    csvForm.value = htmlCSV.join("");
   }
 }
